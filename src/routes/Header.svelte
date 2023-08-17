@@ -41,7 +41,7 @@
 							<iconify-icon icon="ic:baseline-menu"  />
 						</label>
 					</div>
-					<div class="md:navbar-start navbar-center">
+					<div class="md:navbar-start">
 						<h1 class="">RProjects</h1>
 					</div>
 					<div class="navbar-center hidden md:inline-block">
