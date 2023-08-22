@@ -3,6 +3,8 @@
 	import DropdownMenu from './DropdownMenu.svelte';
 	import 'iconify-icon';
 	import NavList from './NavList.svelte';
+	import DarkModeSwitcher from './DarkModeSwitcher.svelte';
+	import { onMount } from 'svelte';
 	
 	const navs: Nav[] = [
 		{
@@ -50,6 +52,7 @@
 						</ul>
 					</div>
 					<div class="navbar-end">
+						<DarkModeSwitcher class="mr-2"/>
 						<DropdownMenu/>
 					</div>
 				</div>
