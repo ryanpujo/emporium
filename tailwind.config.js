@@ -2,7 +2,16 @@
 export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'desktop-banner': "url('/banner.png')",
+        'mobile-banner': "url('/mobile.png')",
+      },
+      aspectRatio: {
+        'desktop-banner': '3.23/1',
+        'mobile-banner': '0.67/1'
+      }
+    },
   },
   plugins: [require("daisyui")],
   daisyui: {

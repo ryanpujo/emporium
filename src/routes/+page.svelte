@@ -2,6 +2,7 @@
 	import Counter from './Counter.svelte';
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	import Homepage from './Homepage.svelte';
 </script>
 
 <svelte:head>
@@ -9,7 +10,5 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<section>
-<h1 class="text-4xl">hello world</h1>
-</section>
+<Homepage/>
 

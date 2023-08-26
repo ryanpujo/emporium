@@ -1,20 +1,23 @@
 <script lang="ts">
-	import { onMount } from "svelte";
+	import { onMount, type ComponentEvents } from "svelte";
 
 onMount(() => {
   let themeMode = localStorage.getItem('theme');
   localStorage.setItem('theme' ,themeMode ? themeMode : 'corporate');
-  let localTheme: string = localStorage.getItem('theme');
+  let localTheme = localStorage.getItem('theme');
   document.querySelector('html')?.setAttribute('data-theme', localTheme ? localTheme : 'corporate');
 });
 
-const handleToggle = (e) => {
+const handleToggle = (e: any) => {
+  let localTheme: string | null;
   if (e.target.checked) {    
     localStorage.setItem('theme', 'synthwave');
-    document.querySelector('html')?.setAttribute('data-theme', localStorage.getItem('theme'));
+    localTheme = localStorage.getItem('theme');
+    document.querySelector('html')?.setAttribute('data-theme', localTheme || "corporate");
   } else {
     localStorage.setItem('theme', 'corporate');
-    document.querySelector('html')?.setAttribute('data-theme', localStorage.getItem('theme'));
+    localTheme = localStorage.getItem('theme');
+    document.querySelector('html')?.setAttribute('data-theme', localTheme || "corporate");
   }
 }
 
