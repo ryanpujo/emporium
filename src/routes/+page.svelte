@@ -1,8 +1,7 @@
 <script lang="ts">
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	import type { PageData } from './$types';
 	import Homepage from './Homepage.svelte';
+	export let data: PageData;
 </script>
 
 <svelte:head>
@@ -10,5 +9,6 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<Homepage/>
+<Homepage items={data}/>
+
 
