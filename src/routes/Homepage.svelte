@@ -4,7 +4,6 @@
 	import ProductCard from "./ProductCard.svelte";
 
 	export let items: PageData;
-	$: console.log(JSON.stringify(items.products));
 	
 </script>
 
@@ -21,9 +20,9 @@
       <h4 class="text-xl font-bold">Beauty at hand</h4>
       <a class="btn btn-primary btn-xs rounded-md" href="#">View all</a>
     </div>
-		<div class="md:flex justify-between">
+		<div class="carousel w-96 md:w-auto md:flex md:justify-between">
 			{#each items.products as product (product.id)}
-				<ProductCard {product} />
+				<ProductCard class="card card-compact w-1/2 md:w-96 carousel-item bg-base-100 shadow-xl mr-5" {product} />
 			{/each}
 		</div>
   </div>
