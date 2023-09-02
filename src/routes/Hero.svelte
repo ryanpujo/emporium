@@ -1,10 +1,12 @@
 <script lang="ts">
   export let title: string;
   export let copyWrite: string;
-  export let buttonText: string;
+  export let buttonText: string = "Discover More";
+  let clazz: string = "";
+  export {clazz as class};
 </script>
 
-<div {...$$restProps}>
+<div {...$$restProps} class={"hero " + clazz}>
   <div class="hero-overlay bg-opacity-60"></div>
   <div class="hero-content text-white text-center">
     <div class="max-w-md">

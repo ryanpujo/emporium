@@ -6,6 +6,7 @@ export default {
       backgroundImage: {
         'desktop-banner': "url('/banner.png')",
         'mobile-banner': "url('/mobile.png')",
+        'hero-banner': "url('/Home.png')"
       },
       aspectRatio: {
         'desktop-banner': '3.23/1',

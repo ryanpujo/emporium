@@ -9,6 +9,6 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<Homepage items={data}/>
+<Homepage products={data}/>
 
 

@@ -1,4 +1,6 @@
 <script>
+	import DarkModeSwitcher from "./DarkModeSwitcher.svelte";
+
   const menus = ["Profile", "Account", "Sign out"]
 </script>
 
