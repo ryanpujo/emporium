@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PageData } from "./$types";
-	import Carousel from "./Carousel.svelte";
+	import Carousel from "./ShowCase.svelte";
 	import Hero from "./Hero.svelte";
 
 	

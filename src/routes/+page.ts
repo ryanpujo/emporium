@@ -5,6 +5,7 @@ export type Product = {
 	images: string[];
 	description: string;
 	category: string;
+	rating: number;
 };
 // export const load: PageLoad = async () => {
 // 	const res = await fetch(

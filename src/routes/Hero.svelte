@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Button from "../lib/components/Button.svelte";
+
   export let title: string;
   export let copyWrite: string;
   export let buttonText: string = "Discover More";
@@ -12,7 +14,8 @@
     <div class="max-w-md">
       <h1 class="mb-5">{title}</h1>
       <p class="mb-5">{copyWrite}</p>
-      <button class="btn btn-primary rounded-full">{buttonText}</button>
+      <!-- <button class="btn btn-primary rounded-full">{buttonText}</button> -->
+      <Button roundedFull>{buttonText}</Button>
     </div>
   </div>
 </div>
