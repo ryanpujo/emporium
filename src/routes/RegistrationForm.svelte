@@ -1,17 +1,18 @@
 <script lang="ts">
-	import { Label, Checkbox, Button, Input } from "flowbite-svelte";
-	import { createEventDispatcher } from "svelte";
+import { Label, Checkbox, Button, Input } from "flowbite-svelte";
+import { createEventDispatcher } from "svelte";
 
-  export let errMessage: string | null;
-  const dispatch = createEventDispatcher();
-  let email: string;
-  let password: string;
-  const signIn = () => {
-    dispatch('signIn', {
-      email,
-      password
-    });
-  }
+export let errMessage: string | null;
+const dispatch = createEventDispatcher();
+let email: string;
+let password: string;
+function dispatchSignup() {
+  dispatch('signup', {
+    email,
+    password
+  });
+}
+
 </script>
 
 {#if errMessage}
@@ -21,7 +22,7 @@
 </div>
 {/if}
 <form class="flex flex-col space-y-6" action="#">
-  <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Sign in to our platform</h3>
+  <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Register to our platform</h3>
   <Label class="space-y-2">
     <span>Email</span>
     <Input type="email" bind:value={email} name="email" placeholder="name@company.com" required />
@@ -30,9 +31,5 @@
     <span>Your password</span>
     <Input type="password" bind:value={password} name="password" placeholder="•••••" required />
   </Label>
-  <div class="flex items-start">
-    <Checkbox>Remember me</Checkbox>
-    <a href="/" class="ml-auto text-sm text-primary-700 hover:underline dark:text-primary-500"> Lost password? </a>
-  </div>
-  <Button disabled={!email || !password} on:click={signIn} type="submit" class="w-full btn-primary">Login to your account</Button>
+  <Button disabled={!email || !password} type="submit" on:click={dispatchSignup} class="w-full btn-primary">Create your account</Button>
 </form>
