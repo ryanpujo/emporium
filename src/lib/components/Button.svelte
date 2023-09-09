@@ -6,7 +6,7 @@ export let link = false;
 export let outline = false;
 export let disabled = false;
 export let roundedFull = false;
-export let rounded: "" | "xl" = "";
+export let rounded: "" | "xl" | "lg" = "";
 
 </script>
 
@@ -24,6 +24,7 @@ export let rounded: "" | "xl" = "";
   class:btn-success={variant === "success"}
   class:rounded-full={roundedFull}
   class:rounded-xl={rounded === "xl"}
+  class:rounded-lg={rounded === "lg"}
   class="btn"
   on:click
   {disabled}

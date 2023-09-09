@@ -1,6 +1,5 @@
 <script lang="ts">
-	import type { PageData } from "./$types";
-	import Carousel from "./ShowCase.svelte";
+	import ShowCase from "./ShowCase.svelte";
 	import Hero from "./Hero.svelte";
 
 	
@@ -12,7 +11,7 @@
 		title="ddnrkrdjnjnterjnet"
 		copyWrite="Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi."
 	/>
-	<Carousel 
+	<ShowCase 
 		title="Women's Clothing"
 		copyWrite="Beauty at Hand"
 		category="womens-dresses"
@@ -21,7 +20,7 @@
 		title="your wish"
 		copyWrite="Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi."
 	/>
-	<Carousel 
+	<ShowCase 
 		title="mens-shirts"
 		copyWrite="Masculinity at Hand"
 		category="mens-shirts"

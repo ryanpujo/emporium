@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Product } from "../../../routes/+page";
+	import type { Product } from "../../../routes/+page.server";
 	import Body from "./Body.svelte";
 let clazz = "";
 export {clazz as class};

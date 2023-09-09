@@ -1,25 +1,27 @@
 <script lang="ts">
 	import { onMount } from "svelte";
-	import type { Product } from "./+page";
-	import Card from "../lib/components/card/Card.svelte";
-	import Button from "../lib/components/Button.svelte";
+	import type { Product } from "./+page.server";
 	import Carousel from "$lib/components/carousel/Carousel.svelte";
-	import Price from "$lib/components/Price.svelte";
-  import MdAddShoppingCart from 'svelte-icons/md/MdAddShoppingCart.svelte'
 	import ProductCard from "$lib/components/ProductCard.svelte";
+	import productsStore from "$lib/stores/productsStore";
+	import { CardPlaceholder } from "flowbite-svelte";
 
   export let title: string;
   export let copyWrite: string;
   export let href: string = "#";
   export let category = "";
-  async function getProductsByCategory() {
-    const res = await fetch(`https://dummyjson.com/products/category/${category}?limit=4`);
-    const json: Product[] = (await res.json()).products;
-    return json
-  }
-  let promise: Promise<Product[]> | null;
+  let products: Product[];
   onMount(() => {
-    promise = getProductsByCategory();
+    let index = 0;
+    const filtered = $productsStore.filter((product) => {
+      if (index > 4) return;
+      if (product.category === category) {
+        index++;
+        return product
+      }
+    });
+    
+    products = [...filtered];
   });
 </script>
 
@@ -30,16 +32,18 @@
     <a class="link link-primary" {href}>View all</a>
   </div>
   <Carousel class="md:flex md:justify-between" let:Item>
-    {#if promise}
-      {#await promise}
-        <div class="flex justify-center w-full"><span class="loading loading-spinner"></span></div>
-      {:then products} 
-        {#each products as product (product.id)}
-          <Item>
-            <ProductCard {product} />
-          </Item>
-        {/each}
-      {/await}
+    {#if !products}
+    <CardPlaceholder/>
+    <CardPlaceholder/>
+    <CardPlaceholder/>
+    <CardPlaceholder/>
+    <CardPlaceholder/>
+    {:else}
+    {#each products as product (product.id)}
+      <Item>
+        <ProductCard {product} />
+      </Item>
+    {/each}
     {/if}
   </Carousel>
 </div>

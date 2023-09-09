@@ -1,9 +1,10 @@
 <script lang="ts">
 	import MdAddShoppingCart from "svelte-icons/md/MdAddShoppingCart.svelte";
-	import type { Product } from "../../routes/+page";
+	import type { Product } from "../../routes/+page.server";
 	import Button from "./Button.svelte";
 	import Price from "./Price.svelte";
 	import Card from "./card/Card.svelte";
+  import {Rating} from 'flowbite-svelte';
 
   export let product: Product;
 </script>
@@ -12,18 +13,13 @@
   <Body let:Action let:Title>
     <Title>{product.title}</Title>
     <div class="flex items-center">
-      <div class="rating mr-2 w-24">
-        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
-        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-      </div>
-      <p>{product.rating}</p>
+      <Rating total={5} rating={product.rating}>
+        <p slot="text" class="ml-2 font-medium">{product.rating}</p>
+      </Rating>
     </div>
     <Action>
       <Price>{product.price}</Price>
-      <Button rounded="xl">
+      <Button rounded="lg">
         <div slot="icon" class="w-6 h-6">
           <MdAddShoppingCart />
         </div>

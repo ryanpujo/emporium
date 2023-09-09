@@ -1,12 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{html,js,svelte,ts}'],
+  content: [
+    './src/**/*.{html,js,svelte,ts}',
+    './node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}'
+  ],
   theme: {
     extend: {
       backgroundImage: {
         'desktop-banner': "url('/banner.png')",
         'mobile-banner': "url('/mobile.png')",
-        'hero-banner': "url('/Home.png')"
+        'hero-banner': "url('/banner3.png')"
       },
       aspectRatio: {
         'desktop-banner': '3.23/1',
@@ -14,7 +17,10 @@ export default {
       }
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [
+    require("daisyui"),
+    require('flowbite/plugin')
+  ],
   daisyui: {
     themes: ["corporate", "synthwave"],
   },
